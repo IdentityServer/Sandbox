@@ -10,8 +10,13 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: UseDotNet@2
+  displayName: 'Install .NET Core SDK'
+  inputs:
+    packageType: 'sdk'
+    useGlobalJson: true
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: './sandbox.sln'
+    projects: 'sandbox.sln'
     arguments: '-c Release'
