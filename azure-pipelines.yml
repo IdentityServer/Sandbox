@@ -17,3 +17,12 @@ steps:
     useGlobalJson: true
 - script: dotnet publish Sandbox.sln --self-contained -r linux-x64 -o publish
   displayName: 'build and publish'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'leastprivilege(b4f1893e-53e4-474d-aee5-7c0db5668eee)'
+    appType: 'webAppLinux'
+    WebAppName: 'is4sandbox'
+    packageForLinux: 'publish'
+    RuntimeStack: 'DOTNETCORE|3.0'
+    StartupCommand: '/home/site/wwwroot/Sandbox'
