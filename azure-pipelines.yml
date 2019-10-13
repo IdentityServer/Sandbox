@@ -15,8 +15,5 @@ steps:
   inputs:
     packageType: 'sdk'
     useGlobalJson: true
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    projects: 'sandbox.sln'
-    arguments: '-c Release'
+- script: dotnet build ./sandbox.sln -c Release
+  displayName: 'dotnet build'
