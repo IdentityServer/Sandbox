@@ -12,6 +12,8 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
-steps:
-- script: dotnet build --c Release
-  displayName: 'dotnet build'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: './sandbox.sln'
+    arguments: '-c Release'
