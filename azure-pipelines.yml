@@ -10,7 +10,7 @@ steps:
   inputs:
     packageType: 'sdk'
     useGlobalJson: true
-- script: dotnet publish Sandbox.sln --self-contained -r linux-x64 -o publish
+- script: dotnet publish Sandbox.sln --self-contained -r linux-x64 -c Release -o publish
   displayName: 'build and publish'
 - task: AzureRmWebAppDeployment@4
   displayName: 'deploy'
