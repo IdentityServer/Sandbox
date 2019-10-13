@@ -15,5 +15,5 @@ steps:
   inputs:
     packageType: 'sdk'
     useGlobalJson: true
-- script: dotnet publish Sandbox.sln -c Release -o publish
+- script: dotnet publish Sandbox.sln --self-contained -r linux-x64 -o publish
   displayName: 'build and publish'
